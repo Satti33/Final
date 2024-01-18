@@ -1,0 +1,19 @@
+<?php
+include 'db.php';
+
+$name = $_POST['name'];
+$rollno = $_POST['rollno'];
+
+$sql = "INSERT INTO user (name, rollno) VALUES ('$name', '$rollno')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "User added successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
+header("Location: index.php");
+exit();
+?>
